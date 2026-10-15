@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0284c7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="校園性別事件通報及調查處理程序參考流程圖互動資訊網，具備直式手機版面、期程時限控管長條圖及動態檢索功能。">
+  <title>性別事件處理流程表 - 互動式校園性平時限控管資訊網</title>
+  
+  <!-- Google Fonts: Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --accent: #8b5cf6;
+      --accent-light: #ede9fe;
+      --success: #10b981;
+      --success-light: #d1fae5;
+      --warning: #2563eb; /* 題目要求：藍色代表警示 */
+      --warning-light: #dbeafe;
+      --danger: #ef4444;  /* 題目要求：紅色代表逾期 */
+      --danger-light: #fee2e2;
+      --amber: #f59e0b;
+      --amber-light: #fef3c7;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --card-bg: #ffffff;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-md: 0 6px 16px rgba(0,0,0,0.07);
+      --shadow-lg: 0 12px 28px rgba(2, 132, 199, 0.12);
+      --transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 50%, #f5f3ff 100%);
+      color: var(--slate-800);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* 手機專用直式外容器 */
+    .mobile-frame {
+      width: 100%;
+      max-width: 480px;
+      min-height: 100vh;
+      background: #ffffff;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      padding-bottom: 90px; /* 留給底部選單空間 */
+    }
+
+    /* 頂部標題列與導航 */
+    .app-header {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      color: #ffffff;
+      padding: 20px 18px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-md);
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .badge-sub {
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(8px);
+      padding: 4px 10px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .sound-toggle-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .sound-toggle-btn:active {
+      transform: scale(0.92);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .header-title-box {
+      margin-top: 4px;
+    }
+
+    .main-title {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sub-info {
+      font-size: 13.5px;
+      opacity: 0.9;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .version-tag {
+      background: #facc15;
+      color: #854d0e;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* 搜尋欄位 */
+    .search-container {
+      margin: 14px 16px 8px;
+      position: relative;
+    }
+
+    .search-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 48px;
+      padding: 10px 42px 10px 44px;
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      border-radius: 24px;
+      font-size: 16px;
+      color: var(--slate-800);
+      outline: none;
+      transition: var(--transition);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .search-input:focus {
+      background: #ffffff;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      color: var(--slate-500);
+      pointer-events: none;
+      display: flex;
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 14px;
+      background: none;
+      border: none;
+      color: var(--slate-400);
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+      padding: 4px;
+    }
+
+    /* 快捷關鍵字標籤 */
+    .quick-tags {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 6px 16px 12px;
+      scrollbar-width: none;
+    }
+    .quick-tags::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tag-btn {
+      white-space: nowrap;
+      background: #f1f5f9;
+      color: var(--slate-700);
+      border: 1px solid #e2e8f0;
+      padding: 5px 12px;
+      border-radius: 16px;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .tag-btn.active, .tag-btn:active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      transform: scale(0.96);
+    }
+
+    /* 主要內容區塊 */
+    .content-area {
+      flex: 1;
+      padding: 4px 16px 16px;
+    }
+
+    /* 分頁頁籤切換 */
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Tab 1: 期程時限控管系統 (核心第 9 項需求) ===== */
+    .calc-hero-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 2px solid #bbf7d0;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .calc-desc {
+      font-size: 14px;
+      color: var(--slate-600);
+      margin-bottom: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 12px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--slate-700);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      height: 48px;
+      padding: 10px 14px;
+      font-size: 16px;
+      border: 2px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      background: #ffffff;
+      color: var(--slate-800);
+      outline: none;
+      transition: var(--transition);
+    }
+    .form-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .action-btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      flex: 1;
+      height: 48px;
+      border-radius: var(--radius-md);
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: var(--slate-700);
+      border: 1px solid #cbd5e1;
+    }
+
+    /* 長條圖圖例說明 */
+    .legend-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .legend-dot.green { background-color: var(--success); box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
+    .legend-dot.blue { background-color: var(--warning); box-shadow: 0 0 8px rgba(37, 99, 235, 0.4); }
+    .legend-dot.red { background-color: var(--danger); box-shadow: 0 0 8px rgba(239, 68, 68, 0.4); }
+
+    /* 期程卡片清單 */
+    .timeline-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .deadline-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      border: 2px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .deadline-card.status-green {
+      border-color: #86efac;
+      background: linear-gradient(to right, #ffffff, #f0fdf4);
+    }
+    .deadline-card.status-blue {
+      border-color: #93c5fd;
+      background: linear-gradient(to right, #ffffff, #eff6ff);
+    }
+    .deadline-card.status-red {
+      border-color: #fca5a5;
+      background: linear-gradient(to right, #ffffff, #fef2f2);
+    }
+
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .deadline-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--slate-800);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-badge {
+      font-size: 12.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .status-badge.green {
+      background: var(--success-light);
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .status-badge.blue {
+      background: var(--warning-light);
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+    .status-badge.red {
+      background: var(--danger-light);
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    .date-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: rgba(248, 250, 252, 0.85);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      margin: 10px 0;
+      font-size: 13.5px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .meta-title {
+      font-size: 12px;
+      color: var(--slate-500);
+      font-weight: 500;
+    }
+    .meta-value {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    /* 題目要求之長條圖：綠色正常、藍色警示、紅色逾期 */
+    .progress-wrapper {
+      margin-top: 10px;
+    }
+
+    .progress-bar-bg {
+      height: 16px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+    }
+
+    .progress-bar-fill.green {
+      background: linear-gradient(90deg, #34d399, #10b981);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+    .progress-bar-fill.blue {
+      background: linear-gradient(90deg, #60a5fa, #2563eb);
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+    }
+    .progress-bar-fill.red {
+      background: linear-gradient(90deg, #f87171, #ef4444);
+      box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+    }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--slate-600);
+      margin-top: 5px;
+    }
+
+    .card-footer-tip {
+      font-size: 13.5px;
+      color: var(--slate-600);
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed #e2e8f0;
+      line-height: 1.5;
+    }
+
+    /* 人工填入與推進下一階段專屬 UI */
+    .deadline-card.status-completed {
+      border-color: #34d399;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.12);
+    }
+
+    .deadline-card.status-locked {
+      opacity: 0.65;
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      border-style: dashed;
+    }
+
+    .manual-action-box {
+      margin-top: 12px;
+      padding: 12px;
+      background: rgba(241, 245, 249, 0.7);
+      border-radius: var(--radius-md);
+      border: 1px solid #e2e8f0;
+    }
+
+    .manual-box-header {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--slate-700);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .manual-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .manual-date-input {
+      flex: 1;
+      height: 42px;
+      padding: 6px 10px;
+      border: 2px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      color: var(--slate-800);
+      background: #ffffff;
+      outline: none;
+      transition: var(--transition);
+    }
+    .manual-date-input:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-advance-phase {
+      width: 100%;
+      height: 44px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+      transition: var(--transition);
+    }
+    .btn-advance-phase:active {
+      transform: scale(0.97);
+    }
+
+    .completed-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .btn-reopen {
+      background: #ffffff;
+      color: #047857;
+      border: 1px solid #10b981;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .btn-reopen:hover {
+      background: #ecfdf5;
+    }
+
+    .mode-switch-bar {
+      display: flex;
+      background: #e2e8f0;
+      padding: 4px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+      gap: 4px;
+    }
+
+    .mode-switch-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 24px;
+      border: none;
+      background: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--slate-600);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+    .mode-switch-btn.active {
+      background: #ffffff;
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .case-storage-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      margin-top: 14px;
+      font-size: 13.5px;
+      color: var(--slate-600);
+    }
+
+    .btn-mini {
+      padding: 5px 10px;
+      font-size: 13px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--slate-700);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-mini:hover {
+      background: #f1f5f9;
+    }
+
+    /* ===== Tab 2: 完整流程樹狀與階段式瀏覽 ===== */
+    .step-timeline {
+      position: relative;
+      padding-left: 28px;
+      margin-top: 10px;
+    }
+
+    .step-timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      bottom: 20px;
+      width: 4px;
+      background: linear-gradient(to bottom, #0284c7, #8b5cf6, #10b981, #f59e0b, #ef4444);
+      border-radius: 4px;
+    }
+
+    .step-node {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .node-icon-dot {
+      position: absolute;
+      left: -28px;
+      top: 8px;
+      width: 24px;
+      height: 24px;
+      background: #ffffff;
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 900;
+      color: var(--primary);
+      box-shadow: 0 0 0 4px #ffffff;
+      z-index: 2;
+    }
+
+    .step-node:nth-child(2) .node-icon-dot { border-color: #0284c7; color: #0284c7; }
+    .step-node:nth-child(3) .node-icon-dot { border-color: #8b5cf6; color: #8b5cf6; }
+    .step-node:nth-child(4) .node-icon-dot { border-color: #10b981; color: #10b981; }
+    .step-node:nth-child(5) .node-icon-dot { border-color: #f59e0b; color: #f59e0b; }
+    .step-node:nth-child(6) .node-icon-dot { border-color: #ef4444; color: #ef4444; }
+
+    .step-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+      padding: 16px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .step-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+    .step-card:active {
+      transform: scale(0.985);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .step-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .step-badge {
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .badge-p1 { background: #fee2e2; color: #dc2626; }
+    .badge-p2 { background: #e0f2fe; color: #0369a1; }
+    .badge-p3 { background: #ede9fe; color: #6d28d9; }
+    .badge-p4 { background: #d1fae5; color: #047857; }
+    .badge-p5 { background: #fef3c7; color: #b45309; }
+
+    .step-title {
+      font-size: 17.5px;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .step-collapse-icon {
+      font-size: 20px;
+      color: var(--slate-400);
+      transition: transform 0.3s ease;
+    }
+    .step-card.expanded .step-collapse-icon {
+      transform: rotate(180deg);
+    }
+
+    .step-time-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #fff7ed;
+      color: #c2410c;
+      border: 1px solid #fed7aa;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .step-detail-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    }
+    .step-card.expanded .step-detail-content {
+      max-height: 1200px;
+      opacity: 1;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .duty-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--slate-700);
+    }
+
+    .duty-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .bullet-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-light);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .alert-callout {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 12px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 14px;
+      color: #92400e;
+      margin-top: 10px;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .role-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 12px;
+    }
+    .role-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0369a1;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .role-card-body {
+      font-size: 14px;
+      color: var(--slate-600);
+      line-height: 1.5;
+    }
+
+    /* ===== Tab 3: 身分指引 & FAQ ===== */
+    .identity-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .id-btn {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .id-btn.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+    }
+    .id-btn-icon {
+      font-size: 26px;
+    }
+    .id-btn-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .faq-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-q {
+      padding: 14px 16px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--slate-800);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      transition: background 0.2s;
+    }
+    .faq-q:hover {
+      background: #f8fafc;
+    }
+    .faq-a {
+      padding: 0 16px;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      font-size: 15px;
+      color: var(--slate-600);
+      line-height: 1.6;
+      transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+      background: #f8fafc;
+      border-top: 1px solid #f1f5f9;
+    }
+    .faq-item.open .faq-a {
+      padding: 14px 16px;
+      max-height: 500px;
+      opacity: 1;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+    }
+    .faq-icon {
+      transition: transform 0.3s ease;
+      color: var(--slate-400);
+    }
+
+    /* ===== Tab 4: 法規依據與下載備份 ===== */
+    .law-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .law-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--slate-800);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .law-content {
+      font-size: 14.5px;
+      color: var(--slate-600);
+      line-height: 1.6;
+    }
+    .law-highlight {
+      background: #fef08a;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* 底部固定導航列 (直式手機體驗) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      height: 72px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid #e2e8f0;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 200;
+      padding: 0 8px;
+    }
+
+    .nav-btn {
+      flex: 1;
+      height: 100%;
+      background: none;
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--slate-500);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-btn.active {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .nav-btn.active .nav-icon {
+      transform: translateY(-2px);
+      color: var(--primary);
+    }
+
+    .nav-icon {
+      font-size: 22px;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-indicator {
+      position: absolute;
+      top: 0;
+      width: 32px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 0 0 4px 4px;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .nav-btn.active .nav-indicator {
+      opacity: 1;
+    }
+
+    /* 搜尋無結果 */
+    .empty-search {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--slate-500);
+    }
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    /* 浮動提示 Toast */
+    .toast-msg {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      background: rgba(30, 41, 59, 0.92);
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* 列印與響應式優化 */
+    @media print {
+      .bottom-nav, .app-header .sound-toggle-btn, .search-container, .quick-tags {
+        display: none !important;
+      }
+      .mobile-frame {
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .step-detail-content {
+        max-height: none !important;
+        opacity: 1 !important;
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 手機直式外框容器 -->
+  <div class="mobile-frame">
+    
+    <!-- 頂部標題 Header -->
+    <header class="app-header">
+      <div class="header-top">
+        <span class="badge-sub">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          性平網資源・標準流程
+        </span>
+        <button class="sound-toggle-btn" id="soundToggleBtn" title="點擊切換音效">
+          <span id="soundIcon">🔊</span>
+          <span id="soundText">音效開</span>
+        </button>
+      </div>
+      
+      <div class="header-title-box">
+        <h1 class="main-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          性別事件處理流程表
+        </h1>
+        <div class="sub-info">
+          <span>校園通報・調查審議・時限控管系統</span>
+          <span class="version-tag">114.02.03結案版</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 檢索與搜尋區塊 -->
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <span class="search-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="text" id="searchInput" class="search-input" placeholder="搜尋時限、處室職責、申復救濟...">
+        <button id="searchClearBtn" class="search-clear">✕</button>
+      </div>
+    </div>
+
+    <!-- 快捷搜尋標籤 -->
+    <div class="quick-tags" id="quickTags">
+      <button class="tag-btn active" data-filter="all">全部總覽</button>
+      <button class="tag-btn" data-filter="24小時">24小時通報</button>
+      <button class="tag-btn" data-filter="3天">3天送性平會</button>
+      <button class="tag-btn" data-filter="20天">20天受理</button>
+      <button class="tag-btn" data-filter="2個月">2個月調查</button>
+      <button class="tag-btn" data-filter="申復">30日申復</button>
+      <button class="tag-btn" data-filter="教評會">教評會解聘</button>
+      <button class="tag-btn" data-filter="關懷e起來">社政校安</button>
+    </div>
+
+    <!-- 主體內容區塊 -->
+    <main class="content-area">
+      
+      <!-- ===== 分頁 1：期程時限控管系統（核心長條圖功能） ===== -->
+      <section id="tab-timeline" class="tab-content active">
+        
+        <!-- 模式切換列 (可切換：連鎖階段人工推進模式 VS 單一基準全推算) -->
+        <div class="mode-switch-bar">
+          <button class="mode-switch-btn active" id="modeChainBtn" onclick="switchCalcMode('chain')">
+            🔗 階段連鎖推進（可人工填入）
+          </button>
+          <button class="mode-switch-btn" id="modeIndepBtn" onclick="switchCalcMode('independent')">
+            📊 單一基準全推算
+          </button>
+        </div>
+
+        <div class="calc-hero-card">
+          <div class="calc-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span id="calcHeroTitle">階段連鎖推進與動態時限控管</span>
+          </div>
+          <p class="calc-desc" id="calcHeroDesc">
+            點選各階段「填入完成日」，可將完成日自動帶入下一階段之起算日，精準掌握各程序法定管制期程與長條圖燈號。
+          </p>
+          
+          <div class="form-group">
+            <label class="form-label" for="baseDateInput" id="baseDateLabel">案件起算基準點（獲知/接獲日期）：</label>
+            <input type="date" id="baseDateInput" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="simulateTodayInput">模擬當前審查日期（計算進行天數與燈號）：</label>
+            <input type="date" id="simulateTodayInput" class="form-input">
+          </div>
+
+          <div class="action-btn-row">
+            <button class="btn btn-primary" id="calcBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              立即更新期程
+            </button>
+            <button class="btn btn-secondary" id="resetTodayBtn">設為今日</button>
+          </div>
+        </div>
+
+        <!-- 案件資料暫存與操作列 -->
+        <div class="case-storage-bar">
+          <span>💾 案件進度已自動儲存</span>
+          <div style="display:flex; gap:6px;">
+            <button class="btn-mini" onclick="copyCaseSummary()" title="複製全案進度文字摘要">📋 複製摘要</button>
+            <button class="btn-mini" onclick="resetWholeCase()" title="清空紀錄開始新案件" style="color:#ef4444;">🔄 重設新案</button>
+          </div>
+        </div>
+
+        <!-- 長條圖燈號圖例 -->
+        <div class="legend-box" style="margin-top:14px;">
+          <div class="legend-item">
+            <span class="legend-dot green"></span>
+            <span>綠色：正常安全</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot blue"></span>
+            <span>藍色：警示期（&ge;75%）</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot red"></span>
+            <span>紅色：逾期提醒</span>
+          </div>
+        </div>
+
+        <!-- 動態生成的時限卡片列表 -->
+        <div class="timeline-cards-list" id="timelineCardsList">
+          <!-- 由 JavaScript 動態生成渲染 -->
+        </div>
+
+      </section>
+
+      <!-- ===== 分頁 2：六大階段流程卡片瀏覽 ===== -->
+      <section id="tab-process" class="tab-content">
+        
+        <div class="step-timeline" id="stepTimelineContainer">
+
+          <!-- 階段 1 -->
+          <div class="step-node" data-keywords="24小時 獲知 通報 校安 關懷e起來 教評會停聘 7天 無管轄權 移轉">
+            <div class="node-icon-dot">1</div>
+            <div class="step-card expanded" onclick="toggleCard(this)">
+              <div class="step-header">
+                <div class="step-header-left">
+                  <span class="step-badge badge-p1">階段一</span>
+                  <h3 class="step-title">獲知疑似事件與法定通報</h3>
+                </div>
+                <span class="step-collapse-icon">▼</span>
+              </div>
+              <div class="step-time-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                時限：獲知 24 小時內通報 / 無管轄權 7 日內移轉
+              </div>
+              <div class="step-detail-content">
+                <ul class="duty-list">
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>教職員工緊急處理：</strong>獲知疑似事件後，先以口頭/電話聯繫學校通報權責人員，填寫各類校安事件告知單交予通報人員。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>雙軌通報（秘書單位）：</strong>
+                      <br>1. <strong>法定通報：</strong>至「關懷 e 起來」網站、當地家暴及性防中心或社會局/處。
+                      <br>2. <strong>校安通報：</strong>教育部校園安全暨災害防救通報處理中心。
+                    </div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>行為人為教師：</strong>通知教評會審議暫時停聘。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>管轄權判斷（7日內）：</strong>若學校無管轄權（如校長為行為人、跨校事件非管轄學校），應於 <strong>7 日內</strong>移轉權責機關並通知當事人。</div>
+                  </li>
+                </ul>
+                <div class="alert-callout">
+                  ⚠️ <strong>重要特別規定：</strong>已滿 18 歲之人非兒童少年之疑似性騷擾事件，無須進行社政通報（僅校安通報及校內程序）。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 階段 2 -->
+          <div class="step-node" data-keywords="3天 20天 性平會 受理 不受理 書面通知 申復">
+            <div class="node-icon-dot">2</div>
+            <div class="step-card" onclick="toggleCard(this)">
+              <div class="step-header">
+                <div class="step-header-left">
+                  <span class="step-badge badge-p2">階段二</span>
+                  <h3 class="step-title">接獲申請/檢舉與性平會受理審議</h3>
+                </div>
+                <span class="step-collapse-icon">▼</span>
+              </div>
+              <div class="step-time-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                時限：接獲 3 日內送性平會 / 20 日內書面通知是否受理
+              </div>
+              <div class="step-detail-content">
+                <ul class="duty-list">
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>送交審議：</strong>接獲申請調查或檢舉後，<strong>3 日內</strong>送交性平會。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>依性平法第 32 條議決：</strong>
+                      <br>・無不受理情形 &rarr; 議決受理 &rarr; 組調查小組。
+                      <br>・有不受理情形 &rarr; 議決不受理。
+                    </div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>20 日內書面通知：</strong>應於 <strong>20 日內</strong>以書面通知申請人、被害人或檢舉人是否受理。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>不受理之申復：</strong>若不受理，申請人、被害人或檢舉人得於接獲通知 <strong>20 日內</strong>提出申復（以 1 次為限）。申復有理由者，交性平會重新審理。</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 階段 3 -->
+          <div class="step-node" data-keywords="2個月 1個月 調查小組 3人 5人 諮商輔導 秘書 教務處 關懷小組">
+            <div class="node-icon-dot">3</div>
+            <div class="step-card" onclick="toggleCard(this)">
+              <div class="step-header">
+                <div class="step-header-left">
+                  <span class="step-badge badge-p3">階段三</span>
+                  <h3 class="step-title">跨處室協同處置與調查小組程序</h3>
+                </div>
+                <span class="step-collapse-icon">▼</span>
+              </div>
+              <div class="step-time-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                時限：受理後 2 個月內完成調查（必要時得延長 1 個月+1個月）
+              </div>
+              <div class="step-detail-content">
+                <ul class="duty-list">
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>組調查小組：</strong>3人或5人（性平會議決人選或授權主任委員與專人協調後聯繫聘任），進行訪談並撰寫調查報告。未組小組由性平會自行處理仍須出具報告。</div>
+                  </li>
+                </ul>
+
+                <div class="role-grid">
+                  <div class="role-card">
+                    <div class="role-card-title">📌 秘書單位（學務處/指定單位）</div>
+                    <div class="role-card-body">
+                      1. 通知法定代理人。<br>
+                      2. 執行性平會決議（發聘調查小組等）。<br>
+                      3. 發文通知受理與否、處理結果、回報系統陳報。<br>
+                      4. 協調彈性出缺勤、學籍與課程。<br>
+                      5. 整合校內外輔導與法律資源，嚴格約制禁止報復。<br>
+                      6. 卷宗原始檔案以「密件」歸檔保存。
+                    </div>
+                  </div>
+
+                  <div class="role-card">
+                    <div class="role-card-title">💙 諮商輔導單位 / 關懷小組</div>
+                    <div class="role-card-body">
+                      1. 輔導關懷當事人、家長及相關班級師生。<br>
+                      2. 建立個案輔導資料並妥善機密管理。<br>
+                      3. 擬定與執行追蹤輔導計畫。<br>
+                      4. 橫向行政協調（社工陪同等）。
+                    </div>
+                  </div>
+
+                  <div class="role-card">
+                    <div class="role-card-title">📢 教務處 / 媒體發言專責</div>
+                    <div class="role-card-body">
+                      ・教務處/系所主管：協助彈性調整當事人課程或教學事宜。<br>
+                      ・發言人：指定專責人員統一對外應對媒體，落實保密防杜二次傷害。
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 階段 4 -->
+          <div class="step-node" data-keywords="議決 處置 教評會 考績委員會 學生獎懲 第26條 解聘 終身管制">
+            <div class="node-icon-dot">4</div>
+            <div class="step-card" onclick="toggleCard(this)">
+              <div class="step-header">
+                <div class="step-header-left">
+                  <span class="step-badge badge-p4">階段四</span>
+                  <h3 class="step-title">性平會議決報告與權責懲處移送</h3>
+                </div>
+                <span class="step-collapse-icon">▼</span>
+              </div>
+              <div class="step-time-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                程序：通過調查報告與處置建議 &rarr; 移送考評懲處
+              </div>
+              <div class="step-detail-content">
+                <ul class="duty-list">
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>性平會議決：</strong>通過調查報告及處理建議（含性平法第 26 條之處置）。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>改變身分者保障：</strong>議處涉及改變當事人身分者，通知行為人陳述意見，召開第 2 次性平會。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>移送權責機構落實懲處：</strong>
+                      <br>・<strong>教師身分：</strong>移送「教師評審委員會」（教評會），依法議決解聘 1-4 年或終身管制。
+                      <br>・<strong>職員工身分：</strong>移送「考績委員會」懲處。
+                      <br>・<strong>學生身分：</strong>移送「學生獎懲委員會」。
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 階段 5 -->
+          <div class="step-node" data-keywords="30日 30天 申復 救濟 申訴 申復審議小組 保障法 勞基法">
+            <div class="node-icon-dot">5</div>
+            <div class="step-card" onclick="toggleCard(this)">
+              <div class="step-header">
+                <div class="step-header-left">
+                  <span class="step-badge badge-p5">階段五</span>
+                  <h3 class="step-title">申復救濟途徑（法定期限 30 日）</h3>
+                </div>
+                <span class="step-collapse-icon">▼</span>
+              </div>
+              <div class="step-time-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                時限：收受處理結果次日起 30 日內提出申復
+              </div>
+              <div class="step-detail-content">
+                <ul class="duty-list">
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>向學校提出申復（30日內）：</strong>不服處理結果，申請人（被害人）及行為人可於 <strong>30 日內</strong>向學校提出申復（以 1 次為限）。學校需另簽組「申復審議小組」。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>逕向主管機關申復：</strong>行為人為校長或教職員工時，申請人（被害人）得逕向主管教育機關提出申復。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div><strong>申復結果不服之法定救濟途徑（30日內）：</strong>
+                      <br>接獲申復書面通知次日起 <strong>30 日內</strong>依身分管道提出：
+                      <br>・<strong>教師：</strong>依教師法向各級教師申訴評議委員會提出申訴。
+                      <br>・<strong>公立學校職員：</strong>依公務人員保障法提起救濟。
+                      <br>・<strong>私校職員/工友：</strong>依勞基法相關規定提起救濟。
+                      <br>・<strong>學生：</strong>向所屬學校提出學生申訴（學生申訴評議委員會）。
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 階段 6 -->
+          <div class="step-node" data-keywords="結案 追蹤 輔導 秘書單位 校務評鑑 彙整">
+            <div class="node-icon-dot">6</div>
+            <div class="step-card" onclick="toggleCard(this)">
+              <div class="step-header">
+                <div class="step-header-left">
+                  <span class="step-badge badge-p2">階段六</span>
+                  <h3 class="step-title">彙整報告・追蹤輔導與列入校評</h3>
+                </div>
+                <span class="step-collapse-icon">▼</span>
+              </div>
+              <div class="step-time-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                持續列管：回報系統勾選結案・納入校務評鑑
+              </div>
+              <div class="step-detail-content">
+                <ul class="duty-list">
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div>秘書單位彙整事件全案處理報告。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div>各處室本於個案之工作任務檢討改善，持續追蹤關懷輔導。</div>
+                  </li>
+                  <li class="duty-item">
+                    <span class="bullet-icon">✓</span>
+                    <div>相關案件之防制作為與成效，列入學校校務評鑑項目。</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ===== 分頁 3：身分快速指引與 QA ===== -->
+      <section id="tab-guide" class="tab-content">
+        
+        <div class="identity-selector">
+          <div class="id-btn active" onclick="switchGuide('reporter', this)">
+            <span class="id-btn-icon">👨‍🏫</span>
+            <span class="id-btn-title">教職人員/通報者</span>
+          </div>
+          <div class="id-btn" onclick="switchGuide('victim', this)">
+            <span class="id-btn-icon">🧑‍🎓</span>
+            <span class="id-btn-title">當事人/家長</span>
+          </div>
+          <div class="id-btn" onclick="switchGuide('committee', this)">
+            <span class="id-btn-icon">⚖️</span>
+            <span class="id-btn-title">性平會/專責秘書</span>
+          </div>
+          <div class="id-btn" onclick="switchGuide('accused', this)">
+            <span class="id-btn-icon">👤</span>
+            <span class="id-btn-title">行為人身分須知</span>
+          </div>
+        </div>
+
+        <div id="guideDetailBox" style="margin-bottom: 20px;">
+          <!-- 動態載入指引說明 -->
+        </div>
+
+        <h3 style="font-size: 18px; font-weight: 700; color: var(--slate-800); margin: 20px 0 10px;">
+          ❓ 校園性平常見疑難 QA
+        </h3>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q1. 學生已滿 18 歲的性騷擾事件，要通報社政嗎？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-a">
+              <strong>答：不需要。</strong> 依最新規定，已滿 18 歲之人非兒童少年之疑似性騷擾事件，無須進行社政通報（關懷 e 起來），但仍必須於 24 小時內完成「校安通報」並啟動校內性平行政程序。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q2. 調查期限 2 個月如果來不及，最長可以延長多久？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-a">
+              <strong>答：得延長 1 個月，並得視個案特別事由展延。</strong> 依性平法規定，性平會應於受理後 2 個月內完成調查；必要時得延長 1 個月，並應通知雙方當事人。管制圖表中規劃有「1 個月 + 1 個月」之展延管制點，嚴格防範程序延宕。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q3. 被害人如果不提出申請，學校可以置之不理嗎？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-a">
+              <strong>答：絕對不可以！</strong> 學校獲知疑似校園性別事件，除鼓勵被害人申請調查外，學校若認有調查必要，性平會得本於職權「主動提出檢舉」啟動調查程序，以保障學生安全與公義。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">
+              <span>Q4. 當事人對於性平會議決結果不服，第一步該怎麼做？</span>
+              <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-a">
+              <strong>答：於 30 日內向學校提出「申復」。</strong> 申復為正式救濟的法定先行程序，以 1 次為限。學校將另組「申復審議小組」重行審視。若對申復結果仍不服，次日起 30 日內再依身分（教評申訴、保訓會、勞基法、學生申訴）進行救濟。
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ===== 分頁 4：法規依據與系統資訊 ===== -->
+      <section id="tab-about" class="tab-content">
+        <div class="law-box">
+          <div class="law-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            母法與標準作業規範依據
+          </div>
+          <div class="law-content">
+            <p>本互動網頁完整參照教育部 <strong>「校園性別事件通報及調查處理程序參考流程圖」最新結案版（114 年 2 月 3 日修正版）</strong> 與性別平等教育法最新規範設計。</p>
+            <br>
+            <p><strong>歷次重要修訂函文：</strong></p>
+            <ul style="padding-left: 20px; margin-top: 6px;">
+              <li>101 年 6 月 4 日 臺訓（三）字第 1010101395 號函</li>
+              <li>103 年 5 月 12 日 臺教學（三）字第 1030056985 號函</li>
+              <li>110 年 6 月 16 日 修正</li>
+              <li><strong>114 年 2 月 3 日 最新修正版（202501修）</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="law-box" style="border-left: 4px solid var(--primary);">
+          <div class="law-title" style="color: var(--primary);">
+            ✨ 專案架構與 GitHub Pages 部署指引
+          </div>
+          <div class="law-content">
+            <p>本系統為單一高度集成響應式 Web 應用（HTML5 + Vanilla JavaScript + CSS3 + Web Audio API），具有下列特點：</p>
+            <br>
+            <p>1. <strong>手機專用直式排版：</strong>字體大且清晰，全站高對比明亮配色，點擊熱區最佳化。</p>
+            <p>2. <strong>期程時限控管長條圖：</strong>以綠色（正常）、藍色（警示）、紅色（逾期）動態渲染管制期程。</p>
+            <p>3. <strong>零第三方依賴：</strong>音效由 Web Audio 原生振盪器合成，無需加載外部 MP3，部署至 GitHub Pages 永不失效！</p>
+            <br>
+            <button class="btn btn-primary" onclick="window.print()" style="margin-top: 10px;">
+              🖨️ 列印 / 另存為 PDF 流程備查
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 底部固定行動導航列 -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" onclick="switchTab('tab-timeline', this)">
+        <div class="nav-indicator"></div>
+        <span class="nav-icon">⏱️</span>
+        <span>期程時限</span>
+      </button>
+
+      <button class="nav-btn" onclick="switchTab('tab-process', this)">
+        <div class="nav-indicator"></div>
+        <span class="nav-icon">📋</span>
+        <span>完整流程</span>
+      </button>
+
+      <button class="nav-btn" onclick="switchTab('tab-guide', this)">
+        <div class="nav-indicator"></div>
+        <span class="nav-icon">💡</span>
+        <span>身分指引</span>
+      </button>
+
+      <button class="nav-btn" onclick="switchTab('tab-about', this)">
+        <div class="nav-indicator"></div>
+        <span class="nav-icon">📖</span>
+        <span>法規依據</span>
+      </button>
+    </nav>
+
+    <!-- 浮動通知提示 Toast -->
+    <div id="toast" class="toast-msg">
+      <span id="toastIcon">🔔</span>
+      <span id="toastText">提醒訊息</span>
+    </div>
+
+  </div>
+
+  <script>
+    /* =========================================================
+       1. Web Audio API 原生音效合成引擎 (無外部檔案依賴、永不404)
+       ========================================================= */
+    class SoundEngine {
+      constructor() {
+        this.enabled = true;
+        this.ctx = null;
+      }
+
+      initContext() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          if (AudioContext) {
+            this.ctx = new AudioContext();
+          }
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+
+      playClick() {
+        if (!this.enabled) return;
+        this.initContext();
+        if (!this.ctx) return;
+        try {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(300, this.ctx.currentTime + 0.05);
+          gain.gain.setValueAtTime(0.12, this.ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start();
+          osc.stop(this.ctx.currentTime + 0.05);
+        } catch (e) { console.warn(e); }
+      }
+
+      playNormal() { // 綠色正常：愉悅雙音鈴聲
+        if (!this.enabled) return;
+        this.initContext();
+        if (!this.ctx) return;
+        try {
+          const now = this.ctx.currentTime;
+          [523.25, 659.25, 783.99].forEach((freq, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+            gain.gain.setValueAtTime(0.15, now + idx * 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.25);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now + idx * 0.08);
+            osc.stop(now + idx * 0.08 + 0.25);
+          });
+        } catch (e) { console.warn(e); }
+      }
+
+      playWarning() { // 藍色警示：溫和警示提音
+        if (!this.enabled) return;
+        this.initContext();
+        if (!this.ctx) return;
+        try {
+          const now = this.ctx.currentTime;
+          [587.33, 440].forEach((freq, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+            gain.gain.setValueAtTime(0.18, now + idx * 0.12);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + idx * 0.12 + 0.15);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now + idx * 0.12);
+            osc.stop(now + idx * 0.12 + 0.15);
+          });
+        } catch (e) { console.warn(e); }
+      }
+
+      playOverdue() { // 紅色逾期：重音警告音
+        if (!this.enabled) return;
+        this.initContext();
+        if (!this.ctx) return;
+        try {
+          const now = this.ctx.currentTime;
+          [220, 196].forEach((freq, idx) => {
+            const osc = this.ctx.createOscillator();
+            const gain = this.ctx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.15);
+            gain.gain.setValueAtTime(0.2, now + idx * 0.15);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + idx * 0.15 + 0.2);
+            osc.connect(gain);
+            gain.connect(this.ctx.destination);
+            osc.start(now + idx * 0.15);
+            osc.stop(now + idx * 0.15 + 0.2);
+          });
+        } catch (e) { console.warn(e); }
+      }
+    }
+
+    const sound = new SoundEngine();
+
+    // 音效開關切換
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    const soundIcon = document.getElementById('soundIcon');
+    const soundText = document.getElementById('soundText');
+    soundToggleBtn.addEventListener('click', () => {
+      sound.enabled = !sound.enabled;
+      if (sound.enabled) {
+        soundIcon.textContent = '🔊';
+        soundText.textContent = '音效開';
+        soundToggleBtn.style.background = 'rgba(255, 255, 255, 0.28)';
+        sound.playNormal();
+        showToast('🔊 音效已開啟');
+      } else {
+        soundIcon.textContent = '🔇';
+        soundText.textContent = '靜音中';
+        soundToggleBtn.style.background = 'rgba(239, 68, 68, 0.4)';
+        showToast('🔇 已切換為靜音模式');
+      }
+    });
+
+    /* =========================================================
+       2. 法定管制期程資料結構 (完全對應 PDF 之 3天、20天、1個月+1個月、2個月等)
+       ========================================================= */
+    const DEADLINE_CONFIGS = [
+      {
+        id: 'notify-24h',
+        name: '獲知事件通報時限',
+        days: 1, // 24小時
+        law: '性別平等教育法第22條 / 各類校安法規',
+        tip: '教職員工知悉後緊急口頭告知，24 小時內完成校安通報及社政通報（滿 18 歲性騷免社政）。',
+        unitLabel: '24 小時（1 天）'
+      },
+    /* =========================================================
+       2. 法定管制期程與連鎖階段資料結構
+       ========================================================= */
+    const CHAIN_PHASES = [
+      {
+        id: 'notify-24h',
+        phaseNum: 1,
+        name: '獲知疑似事件與法定通報',
+        limitDays: 1,
+        limitLabel: '24 小時（1 天）',
+        actionLabel: '填入實際通報完成日，推進下一階段 ➔',
+        law: '性別平等教育法第22條 / 校安作業要點',
+        tip: '教職員工知悉後緊急口頭告知，24 小時內完成校安通報及社政通報（滿 18 歲非兒少性騷免社政）。'
+      },
+      {
+        id: 'send-3d',
+        phaseNum: 2,
+        name: '接獲申請移送性平會',
+        limitDays: 3,
+        limitLabel: '3 天',
+        actionLabel: '填入實際移送性平會日，推進受理審議 ➔',
+        law: '流程圖規定：接獲申請調查或檢舉 3 日內',
+        tip: '秘書單位收件後，應於 3 日內陳報校長並送請性平會審查。若無管轄權應於 7 日內移轉權責機關。'
+      },
+      {
+        id: 'accept-20d',
+        phaseNum: 3,
+        name: '性平會審議是否受理',
+        limitDays: 20,
+        limitLabel: '20 天',
+        actionLabel: '填入書面通知完成日，推進調查階段 ➔',
+        law: '性平法第32條第3項',
+        tip: '性平會應於接獲後 20 日內以書面通知是否受理。若議決受理組調查小組；不受理當事人得於 20 日內申復。'
+      },
+      {
+        id: 'investigate-2m',
+        phaseNum: 4,
+        name: '調查小組調查報告與議決處置',
+        limitDays: 60,
+        limitLabel: '2 個月（約 60 天）',
+        canExtend: true,
+        extendDays: 30,
+        extendLabel: '展延 1 個月（累計 90 天）',
+        actionLabel: '填入調查報告通過日，推進通知申復 ➔',
+        law: '性平法第33條第1項',
+        tip: '性平會應於受理之日起 2 個月內完成調查報告並提出處理建議；必要時得延長 1 個月。涉及改變教師身分者召開第 2 次性平會。'
+      },
+      {
+        id: 'appeal-30d',
+        phaseNum: 5,
+        name: '處理結果通知與申復期程',
+        limitDays: 30,
+        limitLabel: '30 天',
+        actionLabel: '填入申復期滿或審定日，推進救濟/結案 ➔',
+        law: '性平法第37條第1項',
+        tip: '申請人或行為人對處理結果不服，得於收到書面通知次日起 30 日內向學校提出申復（組申復審議小組）。'
+      },
+      {
+        id: 'relief-30d',
+        phaseNum: 6,
+        name: '申復後循管道法定救濟期程',
+        limitDays: 30,
+        limitLabel: '30 天',
+        actionLabel: '填入救濟終結日，推進全案結案 ➔',
+        law: '性平法第39條 / 各身分保障法',
+        tip: '對申復結果不服，接獲通知次日起 30 日內依教師、公務員、勞基法、學生管道提救濟。無爭議後辦理結案。'
+      },
+      {
+        id: 'close-case',
+        phaseNum: 7,
+        name: '全案處理報告彙整與列管結案',
+        limitDays: 0,
+        limitLabel: '持續列管',
+        actionLabel: '完成回報系統勾選結案 🎉',
+        law: '校園性別事件防治準則',
+        tip: '秘書單位彙整報告，原始檔案送密件保存，至系統勾選結案，持續輔導追蹤並納入校務評鑑。'
+      }
+    ];
+
+    const DEADLINE_CONFIGS_INDEP = [
+      { id: 'indep-24h', name: '獲知事件通報時限', days: 1, law: '性平法第22條', unitLabel: '24 小時（1 天）', tip: '獲知後 24 小時內完成校安通報與法定通報。' },
+      { id: 'indep-3d', name: '接獲申請移送性平會', days: 3, law: '作業流程圖規範', unitLabel: '3 天', tip: '收受申請或檢舉後 3 日內陳報校長送性平會。' },
+      { id: 'indep-7d', name: '無管轄權移轉期程', days: 7, law: '性平法第31條', unitLabel: '7 天', tip: '無管轄權應於 7 日內移轉權責機關並通知當事人。' },
+      { id: 'indep-20d', name: '性平會審議是否受理', days: 20, law: '性平法第32條', unitLabel: '20 天', tip: '20 日內以書面通知申請人、被害人或檢舉人是否受理。' },
+      { id: 'indep-2m', name: '調查小組調查完成期限', days: 60, law: '性平法第33條', unitLabel: '2 個月（約 60 天）', tip: '性平會應於受理日起 2 個月內完成調查報告。' },
+      { id: 'indep-extend', name: '調查延長管制期程 (1個月+1個月)', days: 90, law: '性平法第33條但書', unitLabel: '1個月+1個月（累計 90 天）', tip: '必要時得延長 1 個月；重大特殊案依法定累計管制。' },
+      { id: 'indep-appeal', name: '處置結果申復申請期程', days: 30, law: '性平法第37條', unitLabel: '30 天', tip: '接獲處理結果通知次日起 30 日內提出申復。' },
+      { id: 'indep-relief', name: '申復後各身分救濟期程', days: 30, law: '性平法第39條', unitLabel: '30 天', tip: '接獲申復通知次日起 30 日內循法定管道救濟。' }
+    ];
+
+    /* =========================================================
+       3. 核心狀態管理與 LocalStorage 存取
+       ========================================================= */
+    const STORAGE_KEY = 'gender_equity_flow_state_v3';
+
+    function formatDate(d) {
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    const todayStr = formatDate(new Date());
+
+    let appState = {
+      mode: 'chain', // 'chain' (連鎖人工推進) 或 'independent' (單一基準日)
+      baseDate: todayStr,
+      simToday: todayStr,
+      phases: [] // 儲存各階段狀態
+    };
+
+    function initPhasesState(base) {
+      return CHAIN_PHASES.map((p, idx) => ({
+        id: p.id,
+        phaseNum: p.phaseNum,
+        status: idx === 0 ? 'active' : 'locked', // 第一階段預設 active，其餘 locked
+        startDate: idx === 0 ? base : '',
+        completedDate: '',
+        extended: false
+      }));
+    }
+
+    function loadState() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.phases && parsed.phases.length === CHAIN_PHASES.length) {
+            appState = parsed;
+          } else {
+            appState.phases = initPhasesState(appState.baseDate);
+          }
+        } else {
+          appState.phases = initPhasesState(appState.baseDate);
+        }
+      } catch (e) {
+        appState.phases = initPhasesState(appState.baseDate);
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) { console.warn(e); }
+    }
+
+    // 初始化載入
+    loadState();
+
+    const baseDateInput = document.getElementById('baseDateInput');
+    const simulateTodayInput = document.getElementById('simulateTodayInput');
+    const calcBtn = document.getElementById('calcBtn');
+    const resetTodayBtn = document.getElementById('resetTodayBtn');
+    const timelineCardsList = document.getElementById('timelineCardsList');
+    const calcHeroTitle = document.getElementById('calcHeroTitle');
+    const calcHeroDesc = document.getElementById('calcHeroDesc');
+
+    baseDateInput.value = appState.baseDate || todayStr;
+    simulateTodayInput.value = appState.simToday || todayStr;
+
+    // 模式切換邏輯
+    function switchCalcMode(mode) {
+      sound.playClick();
+      appState.mode = mode;
+      saveState();
+
+      const btnChain = document.getElementById('modeChainBtn');
+      const btnIndep = document.getElementById('modeIndepBtn');
+
+      if (mode === 'chain') {
+        btnChain.classList.add('active');
+        btnIndep.classList.remove('active');
+        calcHeroTitle.textContent = '階段連鎖推進與動態時限控管';
+        calcHeroDesc.textContent = '點選各階段「填入完成日」，可將完成日自動帶入下一階段之起算日，精準掌握各程序法定管制期程與長條圖燈號。';
+      } else {
+        btnIndep.classList.add('active');
+        btnChain.classList.remove('active');
+        calcHeroTitle.textContent = '單一基準日起算全流程時限推算';
+        calcHeroDesc.textContent = '以單一事件啟動或接獲日期為基準，一次平行推算全案各階段之法定期程與長條圖狀態。';
+      }
+
+      renderTimeline();
+    }
+
+    // 重設案件
+    function resetWholeCase() {
+      sound.playClick();
+      if (confirm('確定要清空目前案件進度，重新開始新案件嗎？')) {
+        appState.baseDate = todayStr;
+        appState.simToday = todayStr;
+        baseDateInput.value = todayStr;
+        simulateTodayInput.value = todayStr;
+        appState.phases = initPhasesState(todayStr);
+        saveState();
+        renderTimeline();
+        showToast('🔄 已重設為全新案件，可開始填入！');
+      }
+    }
+
+    // 複製全案進度公文摘要
+    function copyCaseSummary() {
+      sound.playClick();
+      let text = `【校園性別事件處理流程時限管考摘要】\n基準起算日：${appState.baseDate}\n目前管考對照日：${simulateTodayInput.value}\n------------------------\n`;
+      
+      CHAIN_PHASES.forEach((p, idx) => {
+        const pState = appState.phases[idx];
+        text += `【第 ${p.phaseNum} 階段】${p.name}（法定限期：${p.limitLabel}）\n`;
+        if (pState.status === 'completed') {
+          text += `  狀態：✅ 已於 ${pState.completedDate} 完成\n`;
+        } else if (pState.status === 'active') {
+          text += `  狀態：🔥 進行中（起算日：${pState.startDate}）\n`;
+        } else {
+          text += `  狀態：⏳ 等候上一階段完成解鎖\n`;
+        }
+      });
+      text += `------------------------\n產生時間：${new Date().toLocaleString('zh-TW')}`;
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast('📋 案件時限摘要已成功複製至剪貼簿！');
+        }).catch(() => {
+          prompt('請手動複製以下摘要：', text);
+        });
+      } else {
+        prompt('請手動複製以下摘要：', text);
+      }
+    }
+
+    // 人工標記完成並推進至下一階段（核心功能）
+    function advancePhase(phaseIndex) {
+      const p = CHAIN_PHASES[phaseIndex];
+      const pState = appState.phases[phaseIndex];
+      const inputEl = document.getElementById(`manualDate_${phaseIndex}`);
+      const completedVal = inputEl ? inputEl.value : todayStr;
+
+      if (!completedVal) {
+        alert('請輸入此階段之實際完成日期！');
+        return;
+      }
+
+      pState.status = 'completed';
+      pState.completedDate = completedVal;
+
+      // 若有下一階段，解鎖下一階段，並自動將該完成日帶入下一階段起算日
+      if (phaseIndex + 1 < CHAIN_PHASES.length) {
+        const nextState = appState.phases[phaseIndex + 1];
+        nextState.status = 'active';
+        nextState.startDate = completedVal; // 人工填入的完成日自動成為下一階段起算日！
+      }
+
+      saveState();
+      sound.playNormal();
+      renderTimeline();
+
+      if (phaseIndex + 1 < CHAIN_PHASES.length) {
+        showToast(`🎉 階段 ${p.phaseNum} 已完成！已自動將 ${completedVal} 帶入下一階段起算日！`);
+      } else {
+        showToast(`🎊 全案已順利執行完畢！可彙整報告送密件歸檔結案。`);
+      }
+    }
+
+    // 重新開放/修改已完成之階段
+    function reopenPhase(phaseIndex) {
+      sound.playClick();
+      const pState = appState.phases[phaseIndex];
+      pState.status = 'active';
+      pState.completedDate = '';
+
+      // 其後續所有階段重設為 locked
+      for (let i = phaseIndex + 1; i < CHAIN_PHASES.length; i++) {
+        appState.phases[i].status = 'locked';
+        appState.phases[i].startDate = '';
+        appState.phases[i].completedDate = '';
+      }
+
+      saveState();
+      renderTimeline();
+      showToast(`✏️ 已重開階段 ${CHAIN_PHASES[phaseIndex].phaseNum}，可重新調整完成日期。`);
+    }
+
+    // 調查階段展延切換 (1個月+1個月)
+    function toggleExtendInvestigate(phaseIndex) {
+      sound.playClick();
+      const pState = appState.phases[phaseIndex];
+      pState.extended = !pState.extended;
+      saveState();
+      renderTimeline();
+      showToast(pState.extended ? '📌 已勾選展延 1 個月（時限由 60 天增為 90 天）' : '✓ 已恢復原法定 2 個月調查期限');
+    }
+
+    // 監聽基準日與審查日變動
+    calcBtn.addEventListener('click', () => {
+      sound.playClick();
+      appState.baseDate = baseDateInput.value;
+      appState.simToday = simulateTodayInput.value;
+      if (appState.phases.length > 0 && appState.phases[0].status === 'active') {
+        appState.phases[0].startDate = appState.baseDate;
+      }
+      saveState();
+      renderTimeline();
+    });
+
+    resetTodayBtn.addEventListener('click', () => {
+      sound.playClick();
+      baseDateInput.value = todayStr;
+      simulateTodayInput.value = todayStr;
+      appState.baseDate = todayStr;
+      appState.simToday = todayStr;
+      if (appState.phases.length > 0 && appState.phases[0].status === 'active') {
+        appState.phases[0].startDate = todayStr;
+      }
+      saveState();
+      renderTimeline();
+      showToast('已重設為今日日期');
+    });
+
+    /* =========================================================
+       4. 渲染邏輯：依據模式渲染長條圖卡片
+       ========================================================= */
+    function renderTimeline() {
+      timelineCardsList.innerHTML = '';
+      if (appState.mode === 'chain') {
+        renderChainMode();
+      } else {
+        renderIndependentMode();
+      }
+    }
+
+    // 渲染模式一：連鎖推進模式（可人工填入推進）
+    function renderChainMode() {
+      const simTodayStr = simulateTodayInput.value || todayStr;
+      const simToday = new Date(simTodayStr + 'T00:00:00');
+      const msPerDay = 24 * 60 * 60 * 1000;
+
+      let hasOverdue = false;
+      let hasWarning = false;
+
+      CHAIN_PHASES.forEach((p, index) => {
+        const pState = appState.phases[index] || { status: 'locked', startDate: '', completedDate: '', extended: false };
+        const card = document.createElement('div');
+
+        // 特別是最後一階段結案
+        if (p.limitDays === 0) {
+          card.className = `deadline-card ${pState.status === 'completed' ? 'status-completed' : (pState.status === 'active' ? 'status-green' : 'status-locked')}`;
+          card.innerHTML = `
+            <div class="card-top-row">
+              <div>
+                <div class="deadline-name">
+                  <span>🏁 第 ${p.phaseNum} 階段：${p.name}</span>
+                </div>
+                <div style="font-size: 13px; color: var(--slate-500); margin-top: 2px;">
+                  管制期程：<strong>${p.limitLabel}</strong>
+                </div>
+              </div>
+              <span class="status-badge ${pState.status === 'completed' ? 'green' : (pState.status === 'active' ? 'blue' : '')}">
+                ${pState.status === 'completed' ? '✓ 全案已結案存查' : (pState.status === 'active' ? '● 當前進行中' : '🔒 等候救濟確定')}
+              </span>
+            </div>
+            <div class="card-footer-tip" style="margin-top:8px;">
+              💡 <strong>處理重點：</strong>${p.tip}
+            </div>
+            ${pState.status === 'active' ? `
+              <div class="manual-action-box">
+                <button class="btn-advance-phase" onclick="advancePhase(${index})">
+                  ${p.actionLabel}
+                </button>
+              </div>
+            ` : ''}
+            ${pState.status === 'completed' ? `
+              <div class="manual-action-box">
+                <div class="completed-banner">
+                  <span>🎉 本案已完成回報系統勾選結案與密件歸檔！</span>
+                  <button class="btn-reopen" onclick="reopenPhase(${index})">重開結案</button>
+                </div>
+              </div>
+            ` : ''}
+          `;
+          timelineCardsList.appendChild(card);
+          return;
+        }
+
+        // 計算此階段之總法定天數（若展延則加上 extendDays）
+        const totalLimitDays = p.canExtend && pState.extended ? (p.limitDays + p.extendDays) : p.limitDays;
+        const currentLimitLabel = p.canExtend && pState.extended ? p.extendLabel : p.limitLabel;
+
+        let statusColor = 'green';
+        let statusBadgeText = '正常進行中';
+        let statusBadgeClass = 'green';
+        let startDateStr = pState.startDate || (index === 0 ? appState.baseDate : '尚未起算');
+        let deadlineStr = '--';
+        let elapsedDays = 0;
+        let remainingDays = 0;
+        let percent = 0;
+
+        if (pState.status === 'completed') {
+          statusColor = 'completed';
+          statusBadgeText = `✅ 已於 ${pState.completedDate} 完成`;
+          statusBadgeClass = 'green';
+          percent = 100;
+        } else if (pState.status === 'locked') {
+          statusColor = 'locked';
+          statusBadgeText = `🔒 等候階段 ${p.phaseNum - 1} 完成`;
+          statusBadgeClass = '';
+          percent = 0;
+        } else {
+          // active 進行中狀態：依據起算日與模擬審查日計算
+          const startDate = new Date((startDateStr || appState.baseDate) + 'T00:00:00');
+          const deadlineDate = new Date(startDate.getTime() + totalLimitDays * msPerDay);
+          deadlineStr = formatDate(deadlineDate);
+
+          elapsedDays = Math.round((simToday - startDate) / msPerDay);
+          remainingDays = Math.round((deadlineDate - simToday) / msPerDay);
+
+          percent = (elapsedDays / totalLimitDays) * 100;
+          if (percent < 0) percent = 0;
+
+          if (remainingDays < 0 || percent > 100) {
+            statusColor = 'red';
+            statusBadgeText = `⚠️ 已逾期 ${Math.abs(remainingDays)} 天`;
+            statusBadgeClass = 'red';
+            hasOverdue = true;
+          } else if (percent >= 75 || remainingDays <= 2) {
+            statusColor = 'blue';
+            statusBadgeText = `🔔 警示！剩餘 ${remainingDays} 天`;
+            statusBadgeClass = 'blue';
+            hasWarning = true;
+          } else {
+            statusColor = 'green';
+            statusBadgeText = `● 安全進行中（剩餘 ${remainingDays} 天）`;
+            statusBadgeClass = 'green';
+          }
+        }
+
+        const barWidth = pState.status === 'completed' ? 100 : Math.min(Math.max(percent, 4), 100);
+        card.className = `deadline-card status-${statusColor}`;
+
+        card.innerHTML = `
+          <div class="card-top-row">
+            <div>
+              <div class="deadline-name">
+                <span>⏱️ 第 ${p.phaseNum} 階段：${p.name}</span>
+              </div>
+              <div style="font-size: 13px; color: var(--slate-500); margin-top: 2px;">
+                管制期程：<strong>${currentLimitLabel}</strong>
+              </div>
+            </div>
+            <span class="status-badge ${statusBadgeClass}">
+              ${statusBadgeText}
+            </span>
+          </div>
+
+          <div class="date-meta-grid">
+            <div class="meta-item">
+              <span class="meta-title">本階段起算日</span>
+              <span class="meta-value">${startDateStr}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-title">法定到期截止日</span>
+              <span class="meta-value" style="color: ${statusColor === 'red' ? '#dc2626' : (statusColor === 'blue' ? '#2563eb' : '#059669')}">
+                ${pState.status === 'completed' ? '已如期結算' : deadlineStr}
+              </span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-title">${pState.status === 'completed' ? '完成確認日' : '已進行天數'}</span>
+              <span class="meta-value">${pState.status === 'completed' ? pState.completedDate : (pState.status === 'locked' ? '尚未啟動' : (elapsedDays >= 0 ? elapsedDays + ' 天' : '尚未開始'))}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-title">時限進度比</span>
+              <span class="meta-value">${Math.round(percent)}%</span>
+            </div>
+          </div>
+
+          <!-- 視覺化長條圖 (綠色正常、藍色警示、紅色逾期) -->
+          <div class="progress-wrapper">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill ${statusColor === 'completed' ? 'green' : statusColor}" style="width: ${barWidth}%;"></div>
+            </div>
+            <div class="progress-labels">
+              <span>0% 起算</span>
+              <span><strong>${currentLimitLabel}</strong></span>
+              <span style="color: ${pState.status === 'completed' ? '#10b981' : (statusColor === 'red' ? '#ef4444' : (statusColor === 'blue' ? '#2563eb' : '#10b981'))}">
+                ${pState.status === 'completed' ? '✓ 階段已達成' : (statusColor === 'red' ? '⚠️ 超出法定期程' : (statusColor === 'blue' ? '🔔 警示提醒中' : (pState.status === 'locked' ? '🔒 等候啟動' : '✓ 正常進度')))}
+              </span>
+            </div>
+          </div>
+
+          ${p.canExtend && pState.status === 'active' ? `
+            <div style="margin-top:10px; background:#eff6ff; padding:8px 12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:13.5px; color:#1e40af; font-weight:600;">
+                📌 調查程序展延：
+              </span>
+              <button class="btn-mini" onclick="toggleExtendInvestigate(${index})" style="border-color:#93c5fd; color:#1d40af;">
+                ${pState.extended ? '已展延 1 個月（點擊取消）' : '＋ 申請展延 1 個月'}
+              </button>
+            </div>
+          ` : ''}
+
+          <!-- 人工填入完成日並推進下一階段操作區 -->
+          ${pState.status === 'active' ? `
+            <div class="manual-action-box">
+              <div class="manual-box-header">
+                <span>📝 人工填入此階段實際完成日：</span>
+                <span style="font-size:12px; color:var(--primary); font-weight:normal;">完成後自動帶入下一階段</span>
+              </div>
+              <div class="manual-input-row">
+                <input type="date" id="manualDate_${index}" class="manual-date-input" value="${simTodayStr}">
+              </div>
+              <button class="btn-advance-phase" onclick="advancePhase(${index})">
+                ${p.actionLabel}
+              </button>
+            </div>
+          ` : ''}
+
+          ${pState.status === 'completed' ? `
+            <div class="manual-action-box">
+              <div class="completed-banner">
+                <span>✨ 已人工確認於 ${pState.completedDate} 順利完成！</span>
+                <button class="btn-reopen" onclick="reopenPhase(${index})">✏️ 重新修改</button>
+              </div>
+            </div>
+          ` : ''}
+
+          <div class="card-footer-tip">
+            📌 <strong>法規依據：</strong>${p.law}<br>
+            💡 <strong>處理重點：</strong>${p.tip}
+          </div>
+        `;
+        timelineCardsList.appendChild(card);
+      });
+
+      // 燈號提示
+      if (hasOverdue) {
+        showToast('⚠️ 偵測到有進行中階段已逾期，請儘速依規定處理！', 'red');
+      } else if (hasWarning) {
+        showToast('🔔 有階段已進入警示期（藍色），請注意管制！', 'blue');
+      }
+    }
+
+    // 渲染模式二：單一基準日全推算模式
+    function renderIndependentMode() {
+      const baseStr = baseDateInput.value;
+      const simTodayStr = simulateTodayInput.value;
+      if (!baseStr || !simTodayStr) return;
+
+      const baseDate = new Date(baseStr + 'T00:00:00');
+      const simToday = new Date(simTodayStr + 'T00:00:00');
+      const msPerDay = 24 * 60 * 60 * 1000;
+      const elapsedDays = Math.round((simToday - baseDate) / msPerDay);
+
+      let hasOverdue = false;
+      let hasWarning = false;
+
+      DEADLINE_CONFIGS_INDEP.forEach((config) => {
+        const deadlineDate = new Date(baseDate.getTime() + config.days * msPerDay);
+        const deadlineStr = formatDate(deadlineDate);
+        const remainingDays = Math.round((deadlineDate - simToday) / msPerDay);
+
+        let percent = (elapsedDays / config.days) * 100;
+        if (percent < 0) percent = 0;
+
+        let statusColor = 'green';
+        let statusBadgeText = '正常進行中';
+        let statusBadgeClass = 'green';
+
+        if (remainingDays < 0 || percent > 100) {
+          statusColor = 'red';
+          statusBadgeText = `已逾期 ${Math.abs(remainingDays)} 天`;
+          statusBadgeClass = 'red';
+          hasOverdue = true;
+        } else if (percent >= 75 || remainingDays <= 2) {
+          statusColor = 'blue';
+          statusBadgeText = `警示！剩餘 ${remainingDays} 天`;
+          statusBadgeClass = 'blue';
+          hasWarning = true;
+        } else {
+          statusColor = 'green';
+          statusBadgeText = `安全剩餘 ${remainingDays} 天`;
+          statusBadgeClass = 'green';
+        }
+
+        const barWidth = Math.min(Math.max(percent, 4), 100);
+        const card = document.createElement('div');
+        card.className = `deadline-card status-${statusColor}`;
+        card.innerHTML = `
+          <div class="card-top-row">
+            <div>
+              <div class="deadline-name">
+                <span>⏱️ ${config.name}</span>
+              </div>
+              <div style="font-size: 13px; color: var(--slate-500); margin-top: 2px;">
+                管制期程：<strong>${config.unitLabel}</strong>
+              </div>
+            </div>
+            <span class="status-badge ${statusBadgeClass}">
+              ● ${statusBadgeText}
+            </span>
+          </div>
+
+          <div class="date-meta-grid">
+            <div class="meta-item">
+              <span class="meta-title">案件起算基準日</span>
+              <span class="meta-value">${baseStr}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-title">法定到期截止日</span>
+              <span class="meta-value" style="color: ${statusColor === 'red' ? '#dc2626' : (statusColor === 'blue' ? '#2563eb' : '#059669')}">
+                ${deadlineStr}
+              </span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-title">已進行天數</span>
+              <span class="meta-value">${elapsedDays >= 0 ? elapsedDays + ' 天' : '尚未開始'}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-title">目前時限進度比</span>
+              <span class="meta-value">${Math.round(percent)}%</span>
+            </div>
+          </div>
+
+          <div class="progress-wrapper">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill ${statusColor}" style="width: ${barWidth}%;"></div>
+            </div>
+            <div class="progress-labels">
+              <span>0% 起算</span>
+              <span><strong>${config.unitLabel}</strong></span>
+              <span style="color: ${statusColor === 'red' ? '#ef4444' : (statusColor === 'blue' ? '#2563eb' : '#10b981')}">
+                ${statusColor === 'red' ? '⚠️ 超出期程' : (statusColor === 'blue' ? '🔔 警示提醒' : '✓ 正常進度')}
+              </span>
+            </div>
+          </div>
+
+          <div class="card-footer-tip">
+            📌 <strong>法規依據：</strong>${config.law}<br>
+            💡 <strong>處理重點：</strong>${config.tip}
+          </div>
+        `;
+        timelineCardsList.appendChild(card);
+      });
+
+      if (hasOverdue) {
+        showToast('⚠️ 偵測到有管制期程已逾期，請儘速依規定處理！', 'red');
+      } else if (hasWarning) {
+        showToast('🔔 有期程已進入警示期（藍色），請注意管制！', 'blue');
+      }
+    }
+
+    // 初始載入渲染
+    renderTimeline();
+
+    /* =========================================================
+       4. 分頁切換 (Tab Navigation)
+       ========================================================= */
+    function switchTab(tabId, btn) {
+      sound.playClick();
+      
+      // 更新 Tab 內容顯隱
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+
+      // 更新按鈕 active
+      document.querySelectorAll('.nav-btn').forEach(b => {
+        b.classList.remove('active');
+      });
+      btn.classList.add('active');
+
+      // 滾動回頂端平滑
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* =========================================================
+       5. 流程卡片折疊/展開互動
+       ========================================================= */
+    function toggleCard(cardElement) {
+      sound.playClick();
+      cardElement.classList.toggle('expanded');
+    }
+
+    /* =========================================================
+       6. 搜尋與篩選邏輯 (支援高亮與動態過濾)
+       ========================================================= */
+    const searchInput = document.getElementById('searchInput');
+    const searchClearBtn = document.getElementById('searchClearBtn');
+    const quickTags = document.getElementById('quickTags');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim().toLowerCase();
+      searchClearBtn.style.display = query ? 'block' : 'none';
+      filterContent(query);
+    });
+
+    searchClearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchClearBtn.style.display = 'none';
+      filterContent('');
+      sound.playClick();
+    });
+
+    // 點擊快捷標籤
+    quickTags.querySelectorAll('.tag-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sound.playClick();
+        quickTags.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        if (filter === 'all') {
+          searchInput.value = '';
+          searchClearBtn.style.display = 'none';
+          filterContent('');
+        } else {
+          searchInput.value = filter;
+          searchClearBtn.style.display = 'block';
+          filterContent(filter.toLowerCase());
+        }
+      });
+    });
+
+    function filterContent(term) {
+      // 若在非流程頁且有輸入搜尋，自動導流到流程頁或檢視相符項目
+      const processTabBtn = document.querySelectorAll('.nav-btn')[1];
+      if (term && !document.getElementById('tab-process').classList.contains('active')) {
+        switchTab('tab-process', processTabBtn);
+      }
+
+      const nodes = document.querySelectorAll('.step-node');
+      let foundCount = 0;
+
+      nodes.forEach(node => {
+        const text = node.textContent.toLowerCase();
+        const keywords = (node.dataset.keywords || '').toLowerCase();
+        const isMatch = !term || text.includes(term) || keywords.includes(term);
+
+        if (isMatch) {
+          node.style.display = 'block';
+          foundCount++;
+          // 搜尋有吻合時自動展開卡片以利閱讀
+          if (term) {
+            const card = node.querySelector('.step-card');
+            if (card) card.classList.add('expanded');
+          }
+        } else {
+          node.style.display = 'none';
+        }
+      });
+
+      // 檢查是否無結果
+      let emptyMsg = document.getElementById('searchEmptyMsg');
+      if (foundCount === 0) {
+        if (!emptyMsg) {
+          emptyMsg = document.createElement('div');
+          emptyMsg.id = 'searchEmptyMsg';
+          emptyMsg.className = 'empty-search';
+          emptyMsg.innerHTML = `
+            <div class="empty-icon">🔍</div>
+            <p style="font-weight:700; font-size:17px; margin-bottom:6px;">查無相符的流程內容</p>
+            <p style="font-size:14px;">請嘗試更換關鍵字（如：通報、20天、申復、教評會）</p>
+          `;
+          document.getElementById('stepTimelineContainer').appendChild(emptyMsg);
+        }
+      } else if (emptyMsg) {
+        emptyMsg.remove();
+      }
+    }
+
+    /* =========================================================
+       7. 身分指引動態切換
+       ========================================================= */
+    const GUIDES = {
+      reporter: {
+        title: '👨‍🏫 教職員工獲知疑似事件指引',
+        items: [
+          '<strong>緊急通報義務：</strong>知悉疑似事件 <strong>24 小時內</strong>必須完成校安與法定通報，切勿私下查證或隱匿。',
+          '<strong>初動通報步驟：</strong>先以口頭/電話告知學校校安專責人員，並填寫校安事件告知單交出。',
+          '<strong>身分特別注意：</strong>若行為人為教師，秘書單位應立即通知教評會審議暫時停聘處分。',
+          '<strong>保密原則：</strong>對於當事人身分資訊應絕對保密，避免造成二次傷害或違反個資防護法規。'
+        ]
+      },
+      victim: {
+        title: '🧑‍🎓 當事人（被害人）及家長權益指南',
+        items: [
+          '<strong>申請調查權利：</strong>可隨時向學校學務處提出申請調查；學校亦得依職權啟動檢舉。',
+          '<strong>課業與出缺勤彈性調整：</strong>教務處與學務處將協助彈性調整出缺勤考核與教學事宜，維護受教權利。',
+          '<strong>專業輔導與關懷：</strong>諮商輔導單位及關懷小組提供心理支持、諮商資源及家防中心社工陪同。',
+          '<strong>申復救濟保障：</strong>若對受理與否或最終懲處不服，可於 <strong>20 日或 30 日內</strong>提出申復與進一步行政救濟。'
+        ]
+      },
+      committee: {
+        title: '⚖️ 性平會委員與秘書單位辦案指南',
+        items: [
+          '<strong>時限緊盯：</strong>收件 3 日內陳報校長送性平會；20 日內作成受理與否書面通知。',
+          '<strong>組成調查小組：</strong>以 3 人或 5 人為原則，女性比例應佔 1/2 以上，具性平專業素養。',
+          '<strong>嚴守調查期程：</strong>受理後 <strong>2 個月內</strong>完成報告；必要時得延長 1 個月並通知雙方當事人。',
+          '<strong>卷宗機密保管：</strong>調查報告、訪談錄音與簽到名冊屬永久密件，依檔案法密件規格歸檔。'
+        ]
+      },
+      accused: {
+        title: '👤 行為人應知權益與配合義務',
+        items: [
+          '<strong>陳述意見保障：</strong>調查過程中調查小組將依法進行訪談並給予完整陳述意見機會。',
+          '<strong>禁止報復約制：</strong>不得對被害人、檢舉人或證人進行直接或間接之報復、騷擾或不當接觸。',
+          '<strong>程序救濟權利：</strong>收到議決通知書後，若不服處理結果，得於 <strong>30 日內</strong>向學校提出申復；或依公務員保障法、教師法或勞基法救濟。'
+        ]
+      }
+    };
+
+    function switchGuide(key, btn) {
+      sound.playClick();
+      document.querySelectorAll('.id-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const data = GUIDES[key];
+      const box = document.getElementById('guideDetailBox');
+      box.innerHTML = `
+        <div style="background:#ffffff; border:2px solid #e2e8f0; border-radius:var(--radius-lg); padding:16px; box-shadow:var(--shadow-sm); animation: fadeIn 0.3s ease;">
+          <h4 style="font-size:17px; font-weight:700; color:#0369a1; margin-bottom:10px;">${data.title}</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:15px; color:var(--slate-700);">
+            ${data.items.map(it => `<li style="display:flex; align-items:flex-start; gap:8px;"><span style="color:#0284c7; font-weight:bold;">▶</span><span>${it}</span></li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    // 初始載入第一個身分指引
+    switchGuide('reporter', document.querySelector('.id-btn.active'));
+
+    /* =========================================================
+       8. FAQ 手風琴摺疊切換
+       ========================================================= */
+    function toggleFaq(el) {
+      sound.playClick();
+      const parent = el.parentElement;
+      parent.classList.toggle('open');
+    }
+
+    /* =========================================================
+       9. 浮動通知提示 (Toast)
+       ========================================================= */
+    let toastTimer = null;
+    function showToast(text, type = 'normal') {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toastText');
+      const toastIcon = document.getElementById('toastIcon');
+
+      toastText.textContent = text;
+      if (type === 'red') {
+        toastIcon.textContent = '🚨';
+        toast.style.background = 'rgba(185, 28, 28, 0.95)';
+      } else if (type === 'blue') {
+        toastIcon.textContent = '🔔';
+        toast.style.background = 'rgba(29, 78, 216, 0.95)';
+      } else {
+        toastIcon.textContent = '✨';
+        toast.style.background = 'rgba(15, 23, 42, 0.92)';
+      }
+
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
